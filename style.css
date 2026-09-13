@@ -59,10 +59,10 @@ textarea {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(251, 247, 242, 0.96);
+  background: rgba(251, 247, 242, 0.94);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--color-border);
-  box-shadow: 0 6px 18px rgba(58, 46, 42, 0.04);
+  border-bottom: 1px solid rgba(58, 46, 42, 0.08);
+  box-shadow: 0 8px 20px rgba(58, 46, 42, 0.04);
 }
 
 .header-inner {
@@ -87,13 +87,14 @@ textarea {
 }
 
 .brand__logo {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   display: block;
   border-radius: 50%;
+  object-fit: cover;
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(181, 103, 58, 0.14);
-  padding: 0.2rem;
+  padding: 0.15rem;
 }
 
 .brand__text {
@@ -192,9 +193,9 @@ main {
 
 .hero {
   position: relative;
-  background: linear-gradient(120deg, rgba(181, 103, 58, 0.82), rgba(58, 46, 42, 0.5)), url("../Ali-Al-Qarni-Professional-Banner.png") center/cover no-repeat;
+  background: linear-gradient(120deg, rgba(181, 103, 58, 0.78), rgba(58, 46, 42, 0.6)), url("../Ali-Al-Qarni-Professional-Banner.png") center/cover no-repeat;
   color: #ffffff;
-  padding: 4.5rem 0 3.5rem;
+  padding: 4.2rem 0 3.3rem;
 }
 
 .hero__grid {
@@ -304,14 +305,14 @@ h3 {
   margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 0.9rem;
 }
 
 .stat-item {
   background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--radius);
-  padding: 1rem;
+  padding: 1rem 0.95rem;
   backdrop-filter: blur(4px);
 }
 
@@ -348,7 +349,7 @@ h3 {
 }
 
 .section {
-  padding: 4rem 0;
+  padding: 4.1rem 0;
 }
 
 .section--muted {
@@ -382,6 +383,12 @@ h3 {
   font-weight: 600;
   color: var(--color-text);
   box-shadow: 0 8px 14px rgba(58, 46, 42, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.expertise-list span:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 18px rgba(58, 46, 42, 0.06);
 }
 
 .cta-band {
@@ -690,6 +697,36 @@ h3 {
 .footer-grid {
   display: grid;
   gap: 2rem;
+}
+
+.footer-list a,
+.footer-list li,
+.contact-list a,
+.contact-list li {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.faq-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.faq-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.25rem;
+  box-shadow: 0 10px 20px rgba(58, 46, 42, 0.04);
+}
+
+.faq-item h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.08rem;
+}
+
+.faq-item p {
+  margin: 0;
+  color: var(--color-text-muted);
 }
 
 .brand--footer {
