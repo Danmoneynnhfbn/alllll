@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Ali Al-Qarni monogram</title>
+  <desc id="desc">A geometric A monogram for Ali Al-Qarni</desc>
+  <rect width="64" height="64" fill="#111315"/>
+  <path d="M14 48 27.5 16h9L50 48h-8l-3.2-8H25.2L22 48h-8Zm14.5-14h7l-3.5-9-3.5 9Z" fill="#F4F1EA"/>
+  <path d="M25.5 40h13.2" stroke="#66705A" stroke-width="2"/>
+</svg>
