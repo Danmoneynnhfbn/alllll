@@ -83,6 +83,8 @@ if (contactForm) {
   const formFields = {
     name: contactForm.querySelector('#name'),
     email: contactForm.querySelector('#email'),
+    company: contactForm.querySelector('#company'),
+    role: contactForm.querySelector('#role'),
     subject: contactForm.querySelector('#subject'),
     message: contactForm.querySelector('#message')
   };
@@ -133,7 +135,7 @@ if (contactForm) {
     });
   });
 
-  contactForm.addEventListener('submit', (event) => {
+  contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     let isValid = true;
@@ -148,15 +150,45 @@ if (contactForm) {
     }
 
     const submitButton = contactForm.querySelector('button[type="submit"]');
+    const formStatus = contactForm.querySelector('.form-status');
     const originalText = submitButton.textContent;
     submitButton.disabled = true;
-    submitButton.textContent = 'Message sent';
+    submitButton.textContent = 'Sending...';
+    if (formStatus) {
+      formStatus.textContent = '';
+      formStatus.className = 'form-status';
+    }
 
-    contactForm.reset();
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(contactForm)
+      });
 
-    setTimeout(() => {
-      submitButton.disabled = false;
+      if (!response.ok) {
+        throw new Error('Contact form submission failed.');
+      }
+
+      contactForm.reset();
+      submitButton.textContent = 'Message sent';
+      if (formStatus) {
+        formStatus.textContent = 'Your message was submitted successfully.';
+        formStatus.classList.add('form-status--success');
+      }
+    } catch (error) {
       submitButton.textContent = originalText;
-    }, 2200);
+      if (formStatus) {
+        formStatus.textContent = 'Submission failed. Please use WhatsApp or email instead.';
+        formStatus.classList.add('form-status--error');
+      }
+    } finally {
+      submitButton.disabled = false;
+      if (submitButton.textContent === 'Message sent') {
+        setTimeout(() => {
+          submitButton.textContent = originalText;
+        }, 2200);
+      }
+    }
   });
 }
