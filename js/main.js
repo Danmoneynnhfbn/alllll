@@ -11,6 +11,25 @@ const scrollTopButton = document.querySelector('.scroll-top');
 const contactForm = document.querySelector('.contact-form');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+window.gtranslateSettings = {
+  default_language: 'en',
+  languages: ['en', 'ar', 'ur', 'hi', 'bn', 'tl', 'id', 'fr'],
+  wrapper_selector: '.gtranslate_wrapper',
+  switcher_horizontal_position: 'right',
+  switcher_vertical_position: 'bottom',
+  float_switcher_open_direction: 'top',
+  alt_flags: { en: 'usa' },
+};
+
+const languageWidget = document.createElement('div');
+languageWidget.className = 'gtranslate_wrapper';
+document.body.append(languageWidget);
+
+const languageWidgetScript = document.createElement('script');
+languageWidgetScript.src = 'https://cdn.gtranslate.net/widgets/latest/float.js';
+languageWidgetScript.defer = true;
+document.body.append(languageWidgetScript);
+
 if (navToggle && siteNav) {
   navToggle.addEventListener('click', () => {
     const isOpen = siteNav.classList.toggle('is-open');
