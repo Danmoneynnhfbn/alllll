@@ -60,7 +60,7 @@ if (siteFooter) {
 
 const whatsappButton = document.createElement('a');
 whatsappButton.className = 'whatsapp-float';
-whatsappButton.href = `https://wa.me/9668581182230?text=${encodeURIComponent('Hello, I would like to inquire about a legal consultation.')}`;
+whatsappButton.href = `https://wa.me/966581182230?text=${encodeURIComponent('Hello, I would like to inquire about a legal consultation.')}`;
 whatsappButton.target = '_blank';
 whatsappButton.rel = 'noopener noreferrer';
 whatsappButton.setAttribute('aria-label', 'Chat on WhatsApp');
