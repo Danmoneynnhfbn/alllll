@@ -25,6 +25,49 @@ const languageWidget = document.createElement('div');
 languageWidget.className = 'gtranslate_wrapper';
 document.body.append(languageWidget);
 
+const createLicenseNotice = (className) => {
+  const notice = document.createElement('div');
+  notice.className = `container license-notice ${className}`;
+
+  const englishNotice = document.createElement('span');
+  englishNotice.lang = 'en';
+  englishNotice.textContent = 'Licensed by the Saudi Ministry of Justice | License No. 481822';
+
+  const arabicNotice = document.createElement('span');
+  arabicNotice.lang = 'ar';
+  arabicNotice.dir = 'rtl';
+  arabicNotice.textContent = 'مرخص من وزارة العدل | ترخيص رقم: 481822';
+
+  notice.append(englishNotice, arabicNotice);
+  return notice;
+};
+
+const siteHeader = document.querySelector('.site-header');
+const siteFooter = document.querySelector('.site-footer');
+
+if (siteHeader) {
+  siteHeader.append(createLicenseNotice('license-notice--header'));
+}
+
+if (siteFooter) {
+  siteFooter.append(createLicenseNotice('license-notice--footer'));
+} else {
+  const footer = document.createElement('footer');
+  footer.className = 'site-footer';
+  footer.append(createLicenseNotice('license-notice--footer'));
+  document.body.append(footer);
+}
+
+const whatsappButton = document.createElement('a');
+whatsappButton.className = 'whatsapp-float';
+whatsappButton.href = `https://wa.me/9668581182230?text=${encodeURIComponent('Hello, I would like to inquire about a legal consultation.')}`;
+whatsappButton.target = '_blank';
+whatsappButton.rel = 'noopener noreferrer';
+whatsappButton.setAttribute('aria-label', 'Chat on WhatsApp');
+whatsappButton.title = 'Chat on WhatsApp';
+whatsappButton.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3a8.5 8.5 0 0 0-7.3 12.86L3.5 20.5l4.77-1.17A8.5 8.5 0 1 0 12 3Z"/><path d="M9.25 8.8c-.2-.46-.42-.47-.62-.48h-.53c-.19 0-.5.07-.76.36s-1 1-.99 2.42 1.02 2.81 1.16 3.01 1.97 3.15 4.87 4.29c2.41.95 2.9.76 3.42.71s1.68-.68 1.92-1.34.24-1.23.17-1.35-.27-.2-.56-.34-1.68-.83-1.94-.92-.45-.14-.64.15-.73.92-.9 1.11-.33.22-.62.07a7.77 7.77 0 0 1-2.29-1.41 8.6 8.6 0 0 1-1.58-1.97c-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.51s.19-.29.29-.48.05-.36-.02-.51-.64-1.58-.9-2.16Z"/></svg>';
+document.body.append(whatsappButton);
+
 const languageWidgetScript = document.createElement('script');
 languageWidgetScript.src = 'https://cdn.gtranslate.net/widgets/latest/float.js';
 languageWidgetScript.defer = true;
