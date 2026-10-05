@@ -1,16 +1,21 @@
 :root {
-  --color-bg: #FBF7F2;
-  --color-surface: #FFFFFF;
-  --color-text: #3A2E2A;
-  --color-text-muted: #7A6C63;
-  --color-primary: #B5673A;
-  --color-primary-dark: #8F4E2A;
-  --color-secondary: #D9A15B;
-  --color-border: #E8DED4;
-  --radius: 12px;
+  --color-bg: #f5efe8;
+  --color-bg-strong: #efe3d4;
+  --color-surface: #fffdfb;
+  --color-surface-alt: #f8f1ea;
+  --color-text: #231b1a;
+  --color-text-muted: #625652;
+  --color-primary: #b76b3d;
+  --color-primary-dark: #8f4f2e;
+  --color-primary-soft: #efd0b5;
+  --color-secondary: #d6a867;
+  --color-secondary-deep: #af7f3a;
+  --color-border: #e7d9cc;
+  --color-ink: #1d1a1a;
+  --radius: 16px;
   --container: 1180px;
-  --shadow-soft: 0 16px 32px rgba(58, 46, 42, 0.08);
-  --shadow-card: 0 22px 40px rgba(58, 46, 42, 0.12);
+  --shadow-soft: 0 18px 40px rgba(34, 23, 19, 0.08);
+  --shadow-card: 0 24px 44px rgba(34, 23, 19, 0.14);
 }
 
 * {
@@ -24,7 +29,9 @@ html {
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
-  background: var(--color-bg);
+  background:
+    radial-gradient(circle at top left, rgba(214, 168, 103, 0.12), transparent 26%),
+    linear-gradient(180deg, var(--color-bg) 0%, #f9f4ee 100%);
   color: var(--color-text);
   line-height: 1.7;
 }
@@ -59,10 +66,10 @@ textarea {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(251, 247, 242, 0.94);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(58, 46, 42, 0.08);
-  box-shadow: 0 8px 20px rgba(58, 46, 42, 0.04);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(35, 27, 26, 0.06);
+  box-shadow: 0 12px 30px rgba(35, 27, 26, 0.04);
 }
 
 .header-inner {
@@ -101,7 +108,7 @@ textarea {
   font-size: 1.08rem;
   font-weight: 800;
   letter-spacing: 0.01em;
-  color: var(--color-text);
+  color: var(--color-ink);
 }
 
 .license-notice {
@@ -264,9 +271,9 @@ main {
   margin: 0 0 0.8rem;
   color: var(--color-secondary);
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 h1,
@@ -352,7 +359,8 @@ li {
 .button--primary {
   background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
   color: #ffffff;
-  box-shadow: 0 12px 26px rgba(181, 103, 58, 0.24);
+  box-shadow: 0 16px 30px rgba(181, 103, 58, 0.28);
+  letter-spacing: 0.01em;
 }
 
 .button--secondary {
@@ -419,7 +427,7 @@ li {
 }
 
 .section--highlight {
-  background: linear-gradient(180deg, rgba(181, 103, 58, 0.08), rgba(251, 247, 242, 0.7));
+  background: linear-gradient(180deg, rgba(214, 168, 103, 0.12), rgba(251, 247, 242, 0.75));
 }
 
 .section-heading {
@@ -592,15 +600,15 @@ li {
   gap: 1.5rem;
   justify-content: space-between;
   align-items: flex-start;
-  background: var(--color-surface);
+  background: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(248,241,234,0.96));
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border-radius: calc(var(--radius) + 4px);
   padding: 2rem;
   box-shadow: var(--shadow-soft);
 }
 
 .page-hero {
-  background: linear-gradient(120deg, rgba(181, 103, 58, 0.84), rgba(58, 46, 42, 0.68)), url("../Ali-Al-Qarni-Professional-Banner.png") center/cover no-repeat;
+  background: linear-gradient(120deg, rgba(22, 18, 18, 0.82), rgba(71, 44, 31, 0.72)), url("../Ali-Al-Qarni-Professional-Banner.png") center/cover no-repeat;
   color: #ffffff;
   padding: 4rem 0 3rem;
 }
@@ -645,7 +653,7 @@ li {
 .credential-card,
 .info-card,
 .contact-card {
-  background: var(--color-surface);
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,246,242,0.98));
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 1.5rem;
@@ -982,11 +990,11 @@ li {
 }
 
 .faq-item {
-  background: var(--color-surface);
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,239,233,0.95));
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 1.2rem 1.25rem;
-  box-shadow: 0 10px 20px rgba(58, 46, 42, 0.04);
+  box-shadow: 0 12px 22px rgba(58, 46, 42, 0.04);
 }
 
 .faq-item h3 {
